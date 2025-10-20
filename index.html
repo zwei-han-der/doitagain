@@ -1,0 +1,200 @@
+g<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>doitagain | reboot your computer NOW!</title>
+        <style>
+            * {
+                box-sizing: border-box;
+                font-family: system-ui;
+            }
+
+            th ul {
+                font-weight: 400;
+                list-style-type: none;
+                text-align: left;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Do It Again - Resete o seu computador AGORA!</h1>
+        <hr />
+        <h2>Configure o seu USB!</h2>
+        <ol type="I">
+            <li>
+                <h3>
+                    Formate o seu pen drive
+                    <small style="font-weight: 400"
+                        >(<a
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href="https://thefilibusterblog.com/pt/formatando-unidades-usb-no-windows-um-guia-passo-a-passo/"
+                            >Mais informações</a
+                        >)</small
+                    >
+                </h3>
+                <p>
+                    Abra o seu <i>Explorador de Arquivos</i> e selecione a
+                    unidade USB. Clique com o
+                    <kbd accesskey="RButton">Botão direito</kbd> na unidade que
+                    você irá utilizar e selecione <strong>Formatar</strong>.
+                </p>
+                <p>
+                    Em seguida, escolha o sistema de arquivos de sua
+                    preferência. Para ajudar você a decidir, aqui está uma
+                    rápida comparação dos sistemas de arquivos:
+                </p>
+                <table>
+                    <thead>
+                        <th>Sistema de arquivos</th>
+                        <th>Prós</th>
+                        <th>Contras</th>
+                        <th>Melhor utilização</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>FAT32</th>
+                            <th>
+                                <ul>
+                                    <li>
+                                        Alta compatibilidade com os principais
+                                        sistemas operacionais
+                                    </li>
+                                    <li>Usa menos memória</li>
+                                </ul>
+                            </th>
+                            <th>
+                                <ul>
+                                    <li>
+                                        Não é possível armazenar arquivos maiores que <data value="4">4</data> GB
+                                    </li>
+                                    <li>
+                                        Tamanho de partição limitado (até <data value="32">32</data> GB)
+                                    </li>
+                                </ul>
+                            </th>
+                            <th>
+                                <ul>
+                                    <li>Unidades USB</li>
+                                    <li>
+                                        Dispositivos que precisam de suporte multiplataforma
+                                    </li>
+                                </ul>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>NTFS</th>
+                            <th>
+                                <ul>
+                                    <li>Suporta partições maiores</li>
+                                    <li>
+                                        Lida com arquivos com mais de <data value="4">4</data> GB
+                                    </li>
+                                    <li>Oferece criptografia instantânea</li>
+                                </ul>
+                            </th>
+                            <th>
+                                <ul>
+                                    <li>Suporte multiplataforma fraco</li>
+                                </ul>
+                            </th>
+                            <th>
+                                <ul>
+                                    <li>Discos rígidos internos</li>
+                                    <li>Unidades do sistema <i>Windows</i></li>
+                                </ul>
+                            </th>
+                        </tr>
+                        <tr>
+                            <th>exFAT</th>
+                            <th>
+                                <ul>
+                                    <li>Tamanhos ilimitados de arquivos e partições</li>
+                                </ul>
+                            </th>
+                            <th>
+                                <ul>
+                                    <li>
+                                        Pode exigir drivers adicionais no
+                                        <button
+                                            popovertarget="linux"
+                                            style="
+                                                padding: 0;
+                                                margin: 0;
+                                                font-size: 16px;
+                                                border: none;
+                                                background-color: transparent;
+                                                cursor: pointer;
+                                                text-decoration: underline;
+                                            "
+                                        >
+                                            Linux
+                                        </button>
+                                    </li>
+                                    <div popover id="linux">oi</div>
+                                </ul>
+                            </th>
+                            <th>
+                                <ul>
+                                    <li>Discos rígidos externos</li>
+                                    <li>
+                                        Armazenamento de arquivos grandes em pen drives
+                                    </li>
+                                </ul>
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+            </li>
+            <li>
+                <h3>Baixe a sua ISO</h3>
+                <div id="products-list">
+                    <h2>Select product</h2>
+                    <input
+                        id="search-products"
+                        type="search"
+                        placeholder="Search with regex..."
+                        onInput="updateResults();"
+                    />
+                    <div id="quick-search">
+                        📌
+                        <button onClick="setSearch('Windows 8\\.1');">
+                            Windows 8.1
+                        </button>
+                        <button onClick="setSearch('Windows 10 22H2');">
+                            Latest Windows 10
+                        </button>
+                        <button onClick="setSearch('25H2');">Latest Windows 11</button>
+                    </div>
+                    <table style="table-layout: auto">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>ID</th>
+                            </tr>
+                        </thead>
+                        <tbody id="products-table-body"></tbody>
+                    </table>
+                </div>
+
+                <div id="msdl-ms-content"></div>
+
+                <div id="msdl-please-wait">
+                    <h2>Please wait...</h2>
+                    <p>Please wait while the data you requested is being retrieved.</p>
+                </div>
+
+                <div id="back-to-products">
+                    <hr />
+                    <button onClick="backToProducts();">
+                        Go back to the product list
+                    </button>
+                </div>
+            </li>
+        </ol>
+        <input id="msdl-session-id" type="hidden" />
+
+        <script src="js/msdl.js"></script>
+    </body>
+</html>
