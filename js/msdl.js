@@ -36,13 +36,13 @@ function langJsonStrToHTML(jsonStr) {
   let json = JSON.parse(jsonStr);
   let container = document.createElement("div");
 
-  let header = document.createElement("h2");
-  header.textContent = "Select the product language";
+  let header = document.createElement("h3");
+  header.textContent = "Selecione o idioma do produto";
   container.appendChild(header);
 
   let info = document.createElement("p");
   info.innerHTML =
-    "You'll need to choose the same language when you install Windows. To see what language you're currently using, go to <strong>Time and language</strong> in PC settings or <strong>Region</strong> in Control Panel.";
+    "Você precisará escolher o mesmo idioma quando instalar o Windows. Para ver qual idioma você está usando atualmente, vá para <strong>Tempo e idioma</strong> nas configurações do PC ou <strong>Região</strong> no Painel de Controle.";
   container.appendChild(info);
 
   let select = document.createElement("select");
@@ -51,7 +51,7 @@ function langJsonStrToHTML(jsonStr) {
   let defaultOption = document.createElement("option");
   defaultOption.value = "";
   defaultOption.selected = "selected";
-  defaultOption.textContent = "Choose one";
+  defaultOption.textContent = "Escolha um idioma";
   select.appendChild(defaultOption);
 
   json.Skus.forEach((sku) => {
@@ -65,7 +65,7 @@ function langJsonStrToHTML(jsonStr) {
 
   let button = document.createElement("button");
   button.id = "submit-sku";
-  button.textContent = "Submit";
+  button.textContent = "Selecionar";
   button.disabled = true;
   button.setAttribute("onClick", "getDownload();");
 
